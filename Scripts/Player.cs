@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     float maxHealth = 3;
     float curHealth = 0;
-    float healthbarMaxWidth = 12f;
     void Start()
     {
         em = FindObjectOfType<EnemyManager>();
@@ -34,9 +33,9 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Trigger");
         if(curHealth-- < 0) curHealth = maxHealth;
-        healthbarForeground.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, healthbarMaxWidth * (curHealth/maxHealth));
-        if(collider.gameObject.CompareTag("Enemy"))
-            em.EnemyKilled(collider.gameObject);
+
+        if(collider.gameObject.CompareTag("Trap"))
+            Destroy(collider.gameObject);
         
         //OnTriggerEnter2D: Owning object must be Kinematic, other collider must be "Trigger"
     }

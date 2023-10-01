@@ -1,14 +1,14 @@
 using UnityEngine;
-
-public class TrapController : MonoBehaviour
+using UnityEngine.SceneManagement;
+using System.Collections;
+public class Trap : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (GetComponent<Collider>().gameObject.CompareTag("Player"))
-        {
-            Debug.Log("DEAD!");
-            Destroy(collision.gameObject); // This destroys the player GameObject
-        }
+        if(collider.gameObject.CompareTag("Player"))
+            Destroy(collider.gameObject);
+            Debug.Log("Main Menu");
+            SceneManager.LoadScene(0);
     }
 }
 
