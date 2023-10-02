@@ -7,7 +7,7 @@ public class Trap : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player")) {
             Debug.Log("Collision Triggered");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(5);
         }
     }
 }

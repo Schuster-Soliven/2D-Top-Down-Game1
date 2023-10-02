@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Projectile") || collision.gameObject.CompareTag("Enemy") ) {
             Debug.Log("Collision Trigger");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(5);
         }
     }
 
