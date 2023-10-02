@@ -3,15 +3,14 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 public class Trap : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collider)
+  void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collider.gameObject.CompareTag("Player"))
-            Destroy(collider.gameObject);
-            Debug.Log("Main Menu");
+        if(collision.gameObject.CompareTag("Player")) {
+            Debug.Log("Collision Triggered");
             SceneManager.LoadScene(0);
+        }
     }
 }
-
 //1. Attach script to trap
 //2. Tag the player to be assigned to Player GameObject
 //3. And add collider to the trap (Tilemap Collider 2D)
